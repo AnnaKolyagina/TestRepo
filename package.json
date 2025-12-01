@@ -1,16 +1,29 @@
 {
-  "name": "hannahw1",
+  "name": "test_framework",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "test": "mocha --config ./config/mocharc.json",
+    "test-jest": "jest",
+    "pret": "npx prettier --write ."
   },
-  "keywords": [],
-  "author": "",
+  "author": "anna kolyagina",
   "license": "ISC",
+  "description": "A simple test framework",
   "devDependencies": {
-    "typescript": "^5.9.2"
+    "@types/chai": "^5.2.3",
+    "@types/jest": "^30.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.10.1",
+    "chai": "^6.2.1",
+    "jest": "^30.2.0",
+    "mocha": "^11.7.5",
+    "mochawesome": "^7.1.4",
+    "prettier": "^3.7.3",
+    "ts-jest": "^29.4.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
   }
 }
