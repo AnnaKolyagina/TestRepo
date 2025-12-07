@@ -2,7 +2,7 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-   
+
     "outDir": "compiled-test",
 
     // Environment Settings
@@ -22,6 +22,6 @@
     "esm": true,
     "experimentalSpecifierResolution": "node"
   },
-"include": ["./**/*.ts"],
-"exclude": ["node_modules"]  
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules"]
 }

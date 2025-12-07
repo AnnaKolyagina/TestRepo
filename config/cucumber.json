@@ -1,0 +1,10 @@
+{
+  "default": {
+    "loader": ["ts-node/esm"],
+    "import": ["features/steps/**/*.ts"],
+    "format": ["pretty", "html:reports/cucumber-report.html"],
+    "formatOptions": {
+      "colorsEnabled": true
+    }
+  }
+}
