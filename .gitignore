@@ -1,4 +1,8 @@
 node_modules
 compiled-test
-package-lock.json
-package.json
+.prettierrc
+mocharc.json
+reports
+src
+node_modules
+
