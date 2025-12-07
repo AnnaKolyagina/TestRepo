@@ -1,22 +1,14 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-
-    "outDir": "compiled-test",
-
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
     "module": "ESNext",
-    "target": "es2024",
+    "target": "ES2024",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "lib": ["ES2024", "dom"],
-    "types": ["node", "mocha", "jest", "superagent"],
-    "moduleDetection": "force",
-    "moduleResolution": "node"
+    "skipLibCheck": true,
+    "outDir": "compiled-test",
+    "types": ["node"]
   },
   "ts-node": {
     "esm": true,

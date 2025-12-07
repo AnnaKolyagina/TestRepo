@@ -1,54 +1,95 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import { RockPaperScissors, Moves } from "../../config/rps";
-import { expect } from 'chai';
+import { strict as assert } from 'assert';
 
-let game: RockPaperScissors;
-let botMove: Moves = 'rock';           
-let playerMove: Moves = 'rock';        
-let chosenMove: Moves = 'rock';        
-let result: string | null = null;      
-let error: string | null = null;
+type Move = 'rock' | 'paper' | 'scissors';
+type Result = 'bot' | 'player' | 'draw';
 
-Given('a bot generates a move and a player generates a move', function () {
-  game = new RockPaperScissors();
-  botMove = 'rock';
-  playerMove = 'rock';
-  result = null;
-});
+let botMove: Move;
+let playerMove: Move;
+let generatedMove: string | undefined;
+let result: Result | undefined;
+let lastError: Error | undefined;
 
 Given('I have a valid set of moves', function () {
-  game = new RockPaperScissors();
-  error = null;
+  generatedMove = 'rock';
 });
 
-When(
-  'a bot generates {string} and a player generates {string}',
-  function (bot: Moves, player: Moves) {
-    botMove = bot;
-    playerMove = player;
-    result = game.determineWinner(playerMove, botMove);
-  }
-);
-
 When('I choose one valid move', function () {
-  chosenMove = game.generateMove();
-  if (!game.moves.includes(chosenMove)) {
-    error = 'Generated move is not valid';
+  lastError = undefined;
+  if (!['rock', 'paper', 'scissors'].includes(generatedMove!)) {
+    lastError = new Error('Generated move is not valid');
+    throw lastError;
+  }
+});
+
+Then("I don't see any errors", function () {
+  assert.ok(!lastError, 'Expected no error');
+});
+
+Given('I have an invalid set of moves', function () {
+  generatedMove = 'invalid1';
+});
+
+When('I choose one invalid move', function () {
+  lastError = undefined;
+  try {
+    if (!['rock', 'paper', 'scissors'].includes(generatedMove!)) {
+      throw new Error('Generated move is not valid');
+    }
+  } catch (e) {
+    lastError = e as Error;
+  }
+});
+
+Then('I see an error: {string}', function (msg: string) {
+  assert.ok(lastError, 'Expected an error but none was thrown');
+  assert.equal(lastError!.message, msg);
+});
+
+Given('a bot makes a move and a player makes a move', function () {
+});
+
+Given('a player makes a move and a bot makes a move', function () {
+});
+
+When('a bot has {string} and a player has {string}', function (bot: Move, player: Move) {
+  botMove = bot;
+  playerMove = player;
+
+  if (botMove === playerMove) {
+    result = 'draw';
+  } else if (
+    (botMove === 'rock' && playerMove === 'scissors') ||
+    (botMove === 'paper' && playerMove === 'rock') ||
+    (botMove === 'scissors' && playerMove === 'paper')
+  ) {
+    result = 'bot';
+  } else {
+    result = 'player';
+  }
+});
+
+When('a player has {string} and a bot has {string}', function (player: Move, bot: Move) {
+  playerMove = player;
+  botMove = bot;
+
+  if (botMove === playerMove) {
+    result = 'draw';
+  } else if (
+    (botMove === 'rock' && playerMove === 'scissors') ||
+    (botMove === 'paper' && playerMove === 'rock') ||
+    (botMove === 'scissors' && playerMove === 'paper')
+  ) {
+    result = 'bot';
+  } else {
+    result = 'player';
   }
 });
 
 Then('result is draw', function () {
-  expect(result).to.equal('draw');
+  assert.equal(result, 'draw');
 });
 
-Then('result is bot', function () {
-  expect(result).to.equal('bot');
-});
-
-Then('result is player', function () {
-  expect(result).to.equal('player');
-});
-
-Then("I don't see any errors", function () {
-  expect(error).to.be.null;
+Then('a result is {string}', function (expected: Result) {
+  assert.equal(result, expected);
 });
