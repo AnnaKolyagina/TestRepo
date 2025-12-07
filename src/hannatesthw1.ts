@@ -1,5 +1,5 @@
-  const user = {
-  name: "Hayes",
-  id: 0,
-}; 
+const user = {
+  name: 'Hayes',
+  id: 0
+};
 // comment
