@@ -1,26 +1,49 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "commonjs",
+    // File Layout
+
     "outDir": "compiled-test",
 
-    "lib": ["es2020", "dom"],  // ← ДОБАВИТЬ ЭТО
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "ESnext",
+    "target": "es2024",
+    "types": ["node", "mocha"],
 
+    // For nodejs:
+    // "lib": ["esnext"],
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // Other Outputs
+
+    // Stricter Typechecking Options
+
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
     "strict": true,
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
     "skipLibCheck": true,
-    "isolatedModules": true
+    "lib": ["ES2024", "dom"]
   },
-
-  "include": [
-    "HW13/**/*.ts",
-    "HW14/**/*.ts"
-  ],
-
-  "exclude": [
-    "node_modules",
-    "compiled-test"
-  ]
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
 }
