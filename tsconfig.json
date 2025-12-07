@@ -1,27 +1,44 @@
 {
   "compilerOptions": {
     // File Layout
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/hanna_k_hw18
     "outDir": "compiled-test",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
+<<<<<<< HEAD
     "module": "ESnext",
     "target": "es2024",
     "types": ["node", "mocha"],
 
+=======
+    "module": "ESNext",
+    "target": "es2024",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2024", "dom"],
+    
+>>>>>>> origin/hanna_k_hw18
     // For nodejs:
     // "lib": ["esnext"],
-    // "types": ["node"],
+    "types": ["node", "mocha", "jest", "superagent"],
     // and npm install -D @types/node
-
     // Other Outputs
+<<<<<<< HEAD
 
     // Stricter Typechecking Options
 
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 
+=======
+    // Stricter Typechecking Options
+>>>>>>> origin/hanna_k_hw18
     // Style Options
     // "noImplicitReturns": true,
     // "noImplicitOverride": true,
@@ -29,21 +46,29 @@
     // "noUnusedParameters": true,
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
-
     // Recommended Options
-    "strict": true,
+    
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
+<<<<<<< HEAD
     "moduleDetection": "force",
     "skipLibCheck": true,
     "lib": ["ES2024", "dom"]
+=======
+    "moduleDetection": "force"
+>>>>>>> origin/hanna_k_hw18
   },
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"
   },
+<<<<<<< HEAD
   "include": ["**/*.ts"],
   "exclude": ["node_modules"]
+=======
+"include": ["./**/*.ts"],
+"exclude": ["node_modules"]  
+>>>>>>> origin/hanna_k_hw18
 }
