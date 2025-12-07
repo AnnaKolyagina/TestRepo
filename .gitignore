@@ -4,3 +4,5 @@ compiled-test
 mocharc.json
 reports
 src
+node_modules
+

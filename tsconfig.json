@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "outDir": "compiled-test",
+
+    "lib": ["es2020", "dom"],  // ← ДОБАВИТЬ ЭТО
+
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "skipLibCheck": true,
+    "isolatedModules": true
+  },
+
+  "include": [
+    "HW13/**/*.ts",
+    "HW14/**/*.ts"
+  ],
+
+  "exclude": [
+    "node_modules",
+    "compiled-test"
+  ]
+}
