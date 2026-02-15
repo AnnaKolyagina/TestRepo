@@ -6,18 +6,14 @@
   "type": "module",
   "scripts": {
     "test": "jest --config ./config/jest.config.js",
-<<<<<<< HEAD
     "cucumber": "npx cucumber-js --config ./config/cucumber.json",
     "pret": "npx prettier --write .",
-=======
->>>>>>> origin/hanna_k
     "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-<<<<<<< HEAD
     "@cucumber/cucumber": "^12.3.0",
     "@playwright/test": "^1.57.0",
     "@types/chai": "^5.2.3",
@@ -25,24 +21,14 @@
     "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "^24.10.1",
-=======
-    "@types/chai": "^5.2.3",
-    "@types/jest": "^30.0.0",
-    "@types/mocha": "^10.0.10",
->>>>>>> origin/hanna_k
     "@types/superagent": "^8.1.9",
     "chai": "^6.2.1",
     "jest": "^30.2.0",
     "mocha": "^11.7.5",
-<<<<<<< HEAD
     "prettier": "^3.7.4",
     "superagent": "^10.2.3",
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
-=======
-    "superagent": "^10.2.3",
-    "ts-jest": "^29.4.6",
->>>>>>> origin/hanna_k
     "typescript": "^5.9.3"
   }
 }
