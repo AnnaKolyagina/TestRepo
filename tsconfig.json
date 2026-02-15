@@ -1,19 +1,42 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
+=======
+    "outDir": "compiled-test",
+
+>>>>>>> origin/hanna_k
     "module": "ESNext",
     "target": "ES2024",
     "strict": true,
     "esModuleInterop": true,
+<<<<<<< HEAD
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "outDir": "compiled-test",
     "types": ["node"]
+=======
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "lib": ["ES2024", "dom"],
+    "types": ["node", "mocha", "jest", "superagent"],
+
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force"
+>>>>>>> origin/hanna_k
   },
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"
   },
+<<<<<<< HEAD
   "include": ["./**/*.ts"],
+=======
+  "include": ["**/*.ts"],
+>>>>>>> origin/hanna_k
   "exclude": ["node_modules"]
 }

@@ -1,13 +1,11 @@
 node_modules
-compiled-test 
+compiled-test
+.prettierrc
+mocharc.json
 src
+node_modules
 .vscode
 .prettierrc
 reports
-
-# Playwright
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
+playwright-report/
+test-results/
