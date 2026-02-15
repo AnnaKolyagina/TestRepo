@@ -1,46 +1,42 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-    "rootDir": "src",
+<<<<<<< HEAD
+=======
     "outDir": "compiled-test",
 
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "es5",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
-
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
+>>>>>>> origin/hanna_k
+    "module": "ESNext",
+    "target": "ES2024",
     "strict": true,
+    "esModuleInterop": true,
+<<<<<<< HEAD
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "outDir": "compiled-test",
+    "types": ["node"]
+=======
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "lib": ["ES2024", "dom"],
+    "types": ["node", "mocha", "jest", "superagent"],
+
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-
-    "removeComments": true,
-  }
+    "moduleDetection": "force"
+>>>>>>> origin/hanna_k
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+<<<<<<< HEAD
+  "include": ["./**/*.ts"],
+=======
+  "include": ["**/*.ts"],
+>>>>>>> origin/hanna_k
+  "exclude": ["node_modules"]
 }

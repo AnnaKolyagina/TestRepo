@@ -1,2 +1,11 @@
 node_modules
 compiled-test
+.prettierrc
+mocharc.json
+src
+node_modules
+.vscode
+.prettierrc
+reports
+playwright-report/
+test-results/

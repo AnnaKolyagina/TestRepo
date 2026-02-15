@@ -1,0 +1,12 @@
+{
+  "default": {
+    "loader": ["ts-node/esm"],
+    "import": ["features/steps/**/*.ts"],
+    "paths": ["features/**/*.feature"],
+    "format": ["pretty", "html:reports/cucumber-report.html"],
+    "formatOptions": {
+      "colorsEnabled": true
+    },
+    "publishQuiet": true
+  }
+}
