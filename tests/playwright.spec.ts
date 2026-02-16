@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.only('add to cart test', async ({ page }) => {
+test('add to cart test', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/', {timeout: 60_000, waitUntil: "load"});
   await page.locator('[data-test="login-credentials"]').click();
   //await page.locator('[data-test="username"]').click();
