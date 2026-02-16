@@ -18,7 +18,15 @@ describe('Registration Form -> Positive tests', () => {
   it('check that valid email is accepted - plus sign', () => {
     expect(form.setEmail('user+tag@example.com')).to.be.true;
   });
-
+  it('check that register fails if email already exists', () => {
+  form.setEmail('user@example.com');
+  form.setPassword('Abcdef1!');
+  form.register();
+  const secondForm = new RegistrationForm();
+  secondForm.setEmail('user@example.com');
+  secondForm.setPassword('Abcdef1!');
+  expect(secondForm.register()).to.equal('Email already exists');
+  });
   it('check that password with 8 chars, uppercase, digit, special is accepted', () => {
     expect(form.setPassword('Abcdef1!')).to.be.true;
   });

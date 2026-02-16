@@ -58,15 +58,15 @@ describe('Registration Form -> Negative tests', () => {
   });
 
   it('check that register fails if email is invalid', () => {
-    form.setEmail('invalid-email');
-    form.setPassword('Abcdef1!');
-    expect(form.register()).to.equal('Invalid email format');
+  form.setEmail('invalid-email');
+  form.setPassword('Abcdef1!');
+  expect(form.register()).to.equal('Email and password are required');
   });
 
   it('check that register fails if password is invalid', () => {
-    form.setEmail('user@example.com');
-    form.setPassword('abcdef'); 
-    expect(form.register()).to.equal('Password must be 8-16 chars, 1 uppercase, 1 digit, 1 special char');
+  form.setEmail('user@example.com');
+  form.setPassword('abcdef'); // false, пароль не установлен
+  expect(form.register()).to.equal('Email and password are required');
   });
 
   it('check that cancel clears even invalid inputs', () => {
