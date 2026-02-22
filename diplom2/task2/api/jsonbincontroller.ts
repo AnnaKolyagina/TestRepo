@@ -1,36 +1,80 @@
-import superagent, { Response } from 'superagent';
+import superagent, { Response, Request } from 'superagent';
 
 export class JsonBinController {
     private baseUrl = 'https://api.jsonbin.io/v3/b';
 
-    constructor(private apiKey: string) {}//конструктор класса - принимает apiKey и сразу сохраняет его в приватное свойство
-//<> используется чтобы передать тип внутрь другого типа
-    async createBin(data: any): Promise<Response> {//возвращает промис (обещание что результат придет позже)
-        return superagent
-            .post(this.baseUrl)//пост запрос на базовый урл
-            .set('X-Master-Key', this.apiKey)//добавляем заголовок с apiKey
-            .set('Content-Type', 'application/json')//говорим серверу что данные в формате json
-            .send({ record: data });//отправляем тело запроса как требует сайт
+    constructor(private apiKey: string) {
+        if (!apiKey) {
+            throw new Error('API key is required');
+        }
     }
 
-    async getBin(binId: string): Promise<Response> {//binId - уникальный идентофикатор bin который мы хотим получить
-        return superagent
-            .get(`${this.baseUrl}/${binId}`)//делаем гет запрос на конкртеный bin
-            .set('X-Master-Key', this.apiKey)
-            .set('Accept', 'application/json');
+    private applyOptions(
+        request: Request,
+        headers?: Record<string, string>,
+        query?: Record<string, any>
+    ): Request {
+        request.set('X-Master-Key', this.apiKey);
+
+        if (headers) {
+            Object.entries(headers).forEach(([key, value]) => {
+                request.set(key, value);
+            });
+        }
+
+        if (query) {
+            request.query(query);
+        }
+
+        return request;
     }
 
-    async updateBin(binId: string, data: any): Promise<Response> {
-        return superagent
-            .put(`${this.baseUrl}/${binId}`)//put запрос на обновление существующего bin
-            .set('X-Master-Key', this.apiKey)
+    async createBin(
+        data: any,
+        headers?: Record<string, string>,
+        query?: Record<string, any>
+    ): Promise<Response> {
+        const request = superagent
+            .post(this.baseUrl)
             .set('Content-Type', 'application/json')
             .send({ record: data });
+
+        return this.applyOptions(request, headers, query);
     }
 
-    async deleteBin(binId: string): Promise<Response> {
-        return superagent
-            .delete(`${this.baseUrl}/${binId}`)
-            .set('X-Master-Key', this.apiKey);//по требованиям нужен только ключ, тело запроса не требуется
+    async getBin(
+        binId: string,
+        headers?: Record<string, string>,
+        query?: Record<string, any>
+    ): Promise<Response> {
+        const request = superagent
+            .get(`${this.baseUrl}/${binId}`)
+            .set('Accept', 'application/json');
+
+        return this.applyOptions(request, headers, query);
+    }
+
+    async updateBin(
+        binId: string,
+        data: any,
+        headers?: Record<string, string>,
+        query?: Record<string, any>
+    ): Promise<Response> {
+        const request = superagent
+            .put(`${this.baseUrl}/${binId}`)
+            .set('Content-Type', 'application/json')
+            .send({ record: data });
+
+        return this.applyOptions(request, headers, query);
+    }
+
+    async deleteBin(
+        binId: string,
+        headers?: Record<string, string>,
+        query?: Record<string, any>
+    ): Promise<Response> {
+        const request = superagent.delete(`${this.baseUrl}/${binId}`);
+
+        return this.applyOptions(request, headers, query);
     }
 }
