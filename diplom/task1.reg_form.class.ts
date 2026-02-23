@@ -8,7 +8,6 @@ export class RegistrationForm {
   public password: string = '';
   //массив пользователей (имитация базы данных):
   private static users: User[] = [];
-  constructor() {}
   //сохраняем email и проверяем его формат, при этом возвращаем true, если email валидный, иначе false
   public setEmail(emailValue: string): boolean {
     const trimmedEmail = emailValue.trim();
@@ -26,7 +25,6 @@ export class RegistrationForm {
   //сохраняем пароль и проверяем его правила + возвращаем true, если пароль валидный, иначе false
   public setPassword(passwordValue: string): boolean {
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,16}$/;
-
     if (!passwordRegex.test(passwordValue)) {
       return false;
     }
