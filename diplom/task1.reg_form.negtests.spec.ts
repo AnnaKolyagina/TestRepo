@@ -65,7 +65,7 @@ describe('Registration Form -> Negative tests', () => {
 
   it('check that register fails if password is invalid', () => {
   form.setEmail('user@example.com');
-  form.setPassword('abcdef'); // false, пароль не установлен
+  form.setPassword('abcdef'); //false, пароль не установлен
   expect(form.register()).to.equal('Email and password are required');
   });
 
